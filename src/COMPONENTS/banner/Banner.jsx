@@ -8,6 +8,14 @@ function Banner() {
       <h1>Welcome to FeelReel! </h1>
       <h3>"Discover stories, feel emotion, live magic.”</h3>
       <button>How are you feeling today?</button>
+      <div className="button-container">
+      <button
+        className="button"
+        style={{ backgroundImage: "url('/banner.png')" }}
+      >
+        ALEGRÍA
+      </button>
+</div>
     </>
   );
 }

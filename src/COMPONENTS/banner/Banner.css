@@ -4,3 +4,29 @@
     display: block;   /* Elimina el espacio debajo de la imagen */
     opacity: 0.7; 
 }
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Centra los botones */
+    padding: 20px;
+  }
+  
+  button {
+    width: 150px;
+    height: 50px;
+    background-size: cover; /* Escala la imagen para cubrir todo el botón */
+    background-position: center; /* Centra la imagen */
+    border: none;
+    border-radius: 10px; /* Bordes redondeados */
+    color: white; /* Color del texto */
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para destacar el texto */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.05); /* Efecto de zoom */
+    box-shadow: 0 4px 8px
+  }
