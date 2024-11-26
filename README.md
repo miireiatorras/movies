@@ -1,3 +1,13 @@
+# LUCAS HAS DE FER AIXO ABANS DE COMENÇAR:
+-FAS DES DE GITHUB FETCH I PULL SI HI HA CANVIS.
+-UN COP HO TENS, A LA TERMINAL DEL VSCODE DINS DE LA CARPETA GITHUB/MOVIES (aixi: C:\Users\mireiatc3\Documents\GitHub\movies)
+fas `npm install`
+-despres, `npm start` per veure la web
+-per pujar canvis, vas a l'esquerra del tot a la 3a opció (com una branca) i poses al +, i li poses un nom al commit.
+-despres fas commit i push. Revisa si s'ha fet bé al github.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
