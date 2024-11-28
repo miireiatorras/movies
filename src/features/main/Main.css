@@ -1,0 +1,28 @@
+
+.Main {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .movie-card {
+    margin: 15px;
+    width: 200px;
+  }
+  
+  .movie-card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .movie-card h3 {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+  }
+  
