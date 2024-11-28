@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MovieCard = ({ title, image }) => {
-  const imageUrl = `https://image.tmdb.org/t/p/w500${image}`; // URL para obtener la imagen
+  const imageUrl = `https://image.tmdb.org/t/p/w500${image}`; 
 
   return (
     <div className="movie-card">

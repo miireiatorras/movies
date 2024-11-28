@@ -29,7 +29,7 @@ const Main = () => {
   };
 
   return (
-    <div className="App">
+    <div className="Main">
       <h1>Popular Movies</h1>
       <div className="movie-list">
         {movies.map(movie => (
