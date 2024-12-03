@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MovieCard = ({ title, image, id }) => {
-  const imageUrl = `https://image.tmdb.org/t/p/w500${image}`;
+  const imageUrl = image ? `https://image.tmdb.org/t/p/w500${image}` : '/Image-not-found.png';
 
   return (
     <div className="movie-card">
