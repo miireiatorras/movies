@@ -5,28 +5,50 @@
     opacity: 0.7; 
 }
 .button-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center; /* Centra los botones */
-    padding: 20px;
-  }
-  
-  button {
-    width: 150px;
-    height: 50px;
-    background-size: cover; /* Escala la imagen para cubrir todo el botón */
-    background-position: center; /* Centra la imagen */
-    border: none;
-    border-radius: 10px; /* Bordes redondeados */
-    color: white; /* Color del texto */
-    font-size: 16px;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para destacar el texto */
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  button:hover {
-    transform: scale(1.05); /* Efecto de zoom */
-    box-shadow: 0 4px 8px
-  }
+  display: grid; /* Usamos grid layout */
+  grid-template-columns: repeat(2, auto); /* Dos columnas con ancho automático */
+  gap: 5px 15px; /* Poco espacio entre filas (5px) y columnas (15px) */
+  justify-content: center; /* Centra horizontalmente las columnas */
+  align-items: center; /* Centra verticalmente las filas */
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  margin: 0; /* Sin márgenes */
+}
+
+
+button {
+  position: relative; /* Necesario para el pseudo-elemento */
+  width: 150px; /* Tamaño original del botón */
+  height: 50px; /* Tamaño original del botón */
+  background-size: cover; /* Escala la imagen para cubrir todo el botón */
+  background-position: center; /* Centra la imagen */
+  border: none;
+  border-radius: 10px; /* Bordes redondeados */
+  color: white; /* Color del texto */
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para destacar el texto */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden; /* Oculta elementos que sobresalgan */
+}
+
+button::before {
+  content: ""; /* Pseudo-elemento vacío */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Fondo negro translúcido */
+  opacity: 0; /* Invisible inicialmente */
+  transition: opacity 0.3s ease; /* Suaviza la transición */
+}
+
+button:hover::before {
+  opacity: 1; /* Aparece al hacer hover */
+}
+
+button:hover {
+  transform: scale(1.05); /* Efecto de zoom */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+}
