@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MovieCard from '../Movie-card/MovieCard';
 import './Main.css';
+import Banner from '../banner/Banner';
 
 const Main = () => {
   const [movies, setMovies] = useState([]);
@@ -8,6 +9,8 @@ const Main = () => {
   useEffect(() => {
     fetchMovies();
   }, []);
+
+
 
   const fetchMovies = async () => {
     try {
@@ -30,6 +33,9 @@ const Main = () => {
 
   return (
     <div className="Main">
+      <div>
+      <Banner />
+      </div>
       <h1>Popular Movies</h1>
       <div className="movie-list">
         {movies.map(movie => (
