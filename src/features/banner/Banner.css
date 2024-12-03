@@ -1,54 +1,60 @@
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Reduce la altura del banner */
+  overflow: hidden;
+}
+
 .banner-img {
-    width: 100%;      /* Hace que la imagen ocupe el 100% del ancho del contenedor */
-    height: auto;     /* Mantiene la proporción original de la imagen */
-    display: block;   /* Elimina el espacio debajo de la imagen */
-    opacity: 0.7; 
-}
-.button-container {
-  display: grid; /* Usamos grid layout */
-  grid-template-columns: repeat(2, auto); /* Dos columnas con ancho automático */
-  gap: 5px 15px; /* Poco espacio entre filas (5px) y columnas (15px) */
-  justify-content: center; /* Centra horizontalmente las columnas */
-  align-items: center; /* Centra verticalmente las filas */
-  height: 100vh; /* Ocupa toda la altura de la ventana */
-  margin: 0; /* Sin márgenes */
-}
-
-
-button {
-  position: relative; /* Necesario para el pseudo-elemento */
-  width: 150px; /* Tamaño original del botón */
-  height: 50px; /* Tamaño original del botón */
-  background-size: cover; /* Escala la imagen para cubrir todo el botón */
-  background-position: center; /* Centra la imagen */
-  border: none;
-  border-radius: 10px; /* Bordes redondeados */
-  color: white; /* Color del texto */
-  font-size: 16px;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para destacar el texto */
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: hidden; /* Oculta elementos que sobresalgan */
-}
-
-button::before {
-  content: ""; /* Pseudo-elemento vacío */
+  width: 100%;
+  height: 100%; /* La altura será proporcional al contenedor */
+  object-fit: cover; /* Hace que la imagen cubra el contenedor sin distorsionarse */
+  opacity: 0.7;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3); /* Fondo negro translúcido */
-  opacity: 0; /* Invisible inicialmente */
-  transition: opacity 0.3s ease; /* Suaviza la transición */
 }
 
-button:hover::before {
-  opacity: 1; /* Aparece al hacer hover */
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 1;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
-button:hover {
-  transform: scale(1.05); /* Efecto de zoom */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+.banner-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 10px 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.banner-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-style: italic;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.banner-content button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.banner-content button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
