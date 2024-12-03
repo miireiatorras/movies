@@ -9,14 +9,14 @@
 }
 
 .navbar-logo .logo {
-    width: 50px; /* Tamaño del logo */
+    width: 50px; 
     height: auto;
 }
 
 .navbar-content {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espaciado entre texto y avatar */
+    gap: 15px;
 }
 
 .profile-link {
@@ -30,6 +30,6 @@
 .avatar {
     width: 40px;
     height: 40px;
-    border-radius: 50%; /* Hacer el avatar circular */
+    border-radius: 50%; 
     object-fit: cover;
 }
