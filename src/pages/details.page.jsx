@@ -20,7 +20,7 @@ const DetailsPage = () => {
 
       const response = await fetch(endpoint, {
         headers: {
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTJhY2YzYzJlMDhhNjRjNzY2OTAzOTlmODNlODdlMSIsIm5iZiI6MTczMjc4ODI0MS4zMTc0MzIyLCJzdWIiOiI2NzNjNmQ2YjNiNDgwNDgxY2RkZGNlYmEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3UCzg5mc2oauTFeiGBWUkF67wwRycQuQ9qcl_B9eU9o",
+          Authorization: "Bearer YOUR_API_KEY_HERE",
           Accept: "application/json",
         },
       });
@@ -32,21 +32,28 @@ const DetailsPage = () => {
   };
 
   return (
-    <div>
+    <div className="details-container">
       {details ? (
         <>
           {/* Mostrar etiqueta si es una película o serie */}
-          <span className="type-label">{details.type === "movie" ? "MOVIE" : "SERIE"}</span>
+          <span className={`type-label ${details.type}`}>{details.type === "movie" ? "MOVIE" : "SERIE"}</span>
 
-          <h1>{details.title || details.name}</h1>
+          <h1 className="details-title">{details.title || details.name}</h1>
           <img
+            className="details-image"
             src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
             alt={details.title || details.name}
           />
-          <p>{details.overview}</p>
-          <p>Release date: {details.release_date || details.first_air_date}</p>
-          <p>Rating: {details.vote_average}</p>
-          <p>Genres: {details.genres.map((genre) => genre.name).join(", ")}</p>
+          <p className="details-overview">{details.overview}</p>
+          <p className="details-release">
+            Release date: <span>{details.release_date || details.first_air_date}</span>
+          </p>
+          <p className="details-rating">
+            Rating: <span>{details.vote_average}</span>
+          </p>
+          <p className="details-genres">
+            Genres: <span>{details.genres.map((genre) => genre.name).join(", ")}</span>
+          </p>
         </>
       ) : (
         <p>Loading...</p>
