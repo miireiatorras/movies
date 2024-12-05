@@ -1,64 +1,94 @@
 .Main {
   text-align: center;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa; /* Fondo suave */
+  padding: 20px 0;
+  min-height: 100vh;
 }
 
 .movie-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 20px; /* Espacio uniforme entre tarjetas */
 }
 
 .movie-card {
-  margin: 15px;
-  width: 200px;
+  margin: 0;
+  width: 220px;
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding: 10px; 
-  background-color: #fff; 
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 .movie-card img {
   width: 100%;
-  border-radius: 8px;
+  height: 300px; /* Tamaño fijo para imágenes */
+  object-fit: cover; /* Mantiene proporciones de imagen */
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
   transition: transform 0.3s ease;
-  margin-bottom: 10px; 
 }
 
 .movie-card h3 {
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   color: #333;
-  margin-top: 10px;
+  margin: 10px;
+  text-align: center;
   transition: color 0.3s ease;
 }
 
 .movie-card:hover {
-  transform: scale(1.05); 
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .movie-card:hover img {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .movie-card:hover h3 {
-  color: #001B5A; 
+  color: #ff7f50;
 }
+
 .search-form {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .search-input {
-  padding: 10px;
+  padding: 12px 16px;
   font-size: 16px;
-  width: 300px;
+  width: 350px;
+  border: 2px solid #ddd;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #ff7f50;
+  box-shadow: 0 0 8px rgba(255, 87, 34, 0.5);
 }
 
 .search-button {
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-size: 16px;
   cursor: pointer;
+  border: none;
+  background-color: #ff7f50;
+  color: white;
+  font-weight: bold;
+  border-radius: 0 8px 8px 0;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-button:hover {
+  background-color: #ff7f50;
+  transform: scale(1.05);
 }
