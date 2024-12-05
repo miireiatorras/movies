@@ -35,7 +35,6 @@ const DetailsPage = () => {
     <div>
       {details ? (
         <>
-          {/* Mostrar etiqueta si es una película o serie */}
           <span className="type-label">{details.type === "movie" ? "MOVIE" : "SERIE"}</span>
 
           <h1>{details.title || details.name}</h1>

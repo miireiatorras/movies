@@ -1,0 +1,18 @@
+.filters {
+    margin-bottom: 20px;
+  }
+  
+  .filters label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .filters input[type="range"] {
+    width: 200px;
+  }
+  
+  .filters select {
+    padding: 5px;
+    font-size: 16px;
+  }
+  
