@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "./DetailsPage.css";
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const DetailsPage = () => {
         },
       });
       const data = await response.json();
-      setDetails(data);
+      setDetails({ ...data, type });
     } catch (error) {
       console.error("Error fetching details:", error);
     }
@@ -34,6 +35,9 @@ const DetailsPage = () => {
     <div>
       {details ? (
         <>
+          {/* Mostrar etiqueta si es una película o serie */}
+          <span className="type-label">{details.type === "movie" ? "MOVIE" : "SERIE"}</span>
+
           <h1>{details.title || details.name}</h1>
           <img
             src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}

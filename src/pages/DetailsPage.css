@@ -1,0 +1,9 @@
+.type-label {
+    background-color: #ff6347;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
