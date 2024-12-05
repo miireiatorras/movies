@@ -1,20 +1,20 @@
 .banner-container {
   position: relative;
   width: 100%;
-  height: 60vh; /* Reduce la altura del banner */
+  height: 60vh;
   overflow: hidden;
 }
 
 .banner-img {
   width: 100%;
-  height: 100%; /* La altura será proporcional al contenedor */
-  object-fit: cover; /* Hace que la imagen cubra el contenedor sin distorsionarse */
-  opacity: 0.9; /* Aumenta la opacidad para hacer la imagen más oscura */
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
   position: absolute;
   top: 0;
   left: 0;
-  filter: brightness(0.4); /* Hace que la imagen sea más oscura */
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.9); /* Sombra más fuerte y más amplia */
+  filter: brightness(0.4);
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.9);
 }
 
 .banner-content {
@@ -26,7 +26,7 @@
   color: white;
   z-index: 1;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.6); /* Fondo negro con más opacidad */
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
 }
 
@@ -34,14 +34,14 @@
   font-size: 3rem;
   font-weight: bold;
   margin: 10px 0;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9); /* Sombra más intensa en el texto */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
 }
 
 .banner-content h3 {
   font-size: 1.5rem;
   margin-bottom: 20px;
   font-style: italic;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); /* Sombra más intensa en el texto */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
 }
 
 .banner-content button {
