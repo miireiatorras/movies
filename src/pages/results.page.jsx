@@ -29,13 +29,13 @@ const ResultsPage = () => {
         `https://api.themoviedb.org/3/search/multi?query=${searchQuery}&language=en-US`,
         {
           headers: {
-            Authorization: "Bearer YOUR_API_KEY", // Asegúrate de usar tu clave de API aquí
+            Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTJhY2YzYzJlMDhhNjRjNzY2OTAzOTlmODNlODdlMSIsIm5iZiI6MTczMjc4ODI0MS4zMTc0MzIyLCJzdWIiOiI2NzNjNmQ2YjNiNDgwNDgxY2RkZGNlYmEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3UCzg5mc2oauTFeiGBWUkF67wwRycQuQ9qcl_B9eU9o",
             Accept: "application/json",
           },
         }
       );
       const data = await response.json();
-      setSearchResults(data.results || []); // Asegúrate de que 'results' sea un array
+      setSearchResults(data.results || []);
     } catch (error) {
       console.error("Error fetching search results:", error);
     }
@@ -47,13 +47,13 @@ const ResultsPage = () => {
         `https://api.themoviedb.org/3/genre/movie/list?language=en-US`,
         {
           headers: {
-            Authorization: "Bearer YOUR_API_KEY", // Asegúrate de usar tu clave de API aquí
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTJhY2YzYzJlMDhhNjRjNzY2OTAzOTlmODNlODdlMSIsIm5iZiI6MTczMjc4ODI0MS4zMTc0MzIyLCJzdWIiOiI2NzNjNmQ2YjNiNDgwNDgxY2RkZGNlYmEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3UCzg5mc2oauTFeiGBWUkF67wwRycQuQ9qcl_B9eU9o", 
             Accept: "application/json",
           },
         }
       );
       const data = await response.json();
-      setGenres(data.genres || []); // Asegúrate de que 'genres' sea un array
+      setGenres(data.genres || []); 
     } catch (error) {
       console.error("Error fetching genres:", error);
     }
@@ -62,14 +62,12 @@ const ResultsPage = () => {
   const filterResults = () => {
     let filtered = searchResults;
 
-    // Filtrar por rating
     if (rating > 0) {
       filtered = filtered.filter(
         (result) => result.vote_average >= rating
       );
     }
 
-    // Filtrar por género
     if (genre) {
       filtered = filtered.filter((result) =>
         result.genre_ids?.includes(Number(genre))
@@ -83,11 +81,9 @@ const ResultsPage = () => {
     <div>
       <h1>Search Results for "{query}"</h1>
 
-      {/* Filtros */}
       <div className="filters">
-        {/* Filtro de Rating */}
         <div>
-          <label htmlFor="rating">Minimum Rating:</label>
+          <label htmlFor="rating">Rating:</label>
           <input
             type="range"
             id="rating"
@@ -100,7 +96,6 @@ const ResultsPage = () => {
           <span>{rating}</span>
         </div>
 
-        {/* Filtro de Género */}
         <div>
           <label htmlFor="genre">Select Genre:</label>
           <select
@@ -118,7 +113,6 @@ const ResultsPage = () => {
         </div>
       </div>
 
-      {/* Resultados filtrados */}
       <div className="movie-list">
         {filteredResults.length > 0 ? (
           filteredResults.map((result) => (
