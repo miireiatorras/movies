@@ -85,6 +85,7 @@ const Main = () => {
               title={movie.title}
               image={movie.poster_path}
               id={`movie-${movie.id}`}
+              release_date={movie.release_date}
             />
           ))
         ) : (
@@ -101,6 +102,7 @@ const Main = () => {
               title={series.name}
               image={series.poster_path}
               id={`series-${series.id}`}
+              release_date={series.first_air_date}
             />
           ))
         ) : (

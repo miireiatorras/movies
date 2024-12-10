@@ -131,6 +131,7 @@ const ResultsPage = () => {
               title={result.title || result.name}
               image={result.poster_path}
               id={`${result.media_type}-${result.id}`}
+              release_date={result.release_date}
             />
           ))
         )}
