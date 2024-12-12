@@ -12,7 +12,6 @@ const ResultsPage = () => {
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get("query");
 
-  // Fetch search results and genres when the query is available
   useEffect(() => {
     if (query) {
       fetchSearchResults(query);
@@ -20,32 +19,29 @@ const ResultsPage = () => {
     }
   }, [query]);
 
-  // Apply filtering whenever search results, rating, or genre change
   useEffect(() => {
     filterResults();
   }, [rating, genre, searchResults]);
 
-  // Fetch search results from the API
   const fetchSearchResults = async (searchQuery) => {
     try {
       const response = await fetch(
         `https://api.themoviedb.org/3/search/multi?query=${searchQuery}&language=en-US`,
         {
           headers: {
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTJhY2YzYzJlMDhhNjRjNzY2OTAzOTlmODNlODdlMSIsIm5iZiI6MTczMjc4ODI0MS4zMTc0MzIyLCJzdWIiOiI2NzNjNmQ2YjNiNDgwNDgxY2RkZGNlYmEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3UCzg5mc2oauTFeiGBWUkF67wwRycQuQ9qcl_B9eU9o", // Reemplaza con tu clave API
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTJhY2YzYzJlMDhhNjRjNzY2OTAzOTlmODNlODdlMSIsIm5iZiI6MTczMjc4ODI0MS4zMTc0MzIyLCJzdWIiOiI2NzNjNmQ2YjNiNDgwNDgxY2RkZGNlYmEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3UCzg5mc2oauTFeiGBWUkF67wwRycQuQ9qcl_B9eU9o", 
             Accept: "application/json",
           },
         }
       );
       const data = await response.json();
-      console.log(data.results); // Para verificar los resultados
+      console.log(data.results); 
       setSearchResults(data.results || []);
     } catch (error) {
       console.error("Error fetching search results:", error);
     }
   };
 
-  // Fetch genres for filtering
   const fetchGenres = async () => {
     try {
       const response = await fetch(
@@ -64,18 +60,15 @@ const ResultsPage = () => {
     }
   };
 
-  // Filter results by rating and genre
   const filterResults = () => {
     let filtered = searchResults;
 
-    // Filter by rating
     if (rating > 0) {
       filtered = filtered.filter(
         (result) => result.vote_average >= rating
       );
     }
 
-    // Filter by genre
     if (genre) {
       filtered = filtered.filter((result) =>
         result.genre_ids?.includes(Number(genre))

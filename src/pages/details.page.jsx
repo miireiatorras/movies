@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";  // Importa useNavigate
+import { useParams, useNavigate } from "react-router-dom";  
 import "./DetailsPage.css";
 
 const DetailsPage = () => {
   const { id } = useParams();
   const [details, setDetails] = useState(null);
   const [relatedContent, setRelatedContent] = useState([]);
-  const navigate = useNavigate();  // Usamos useNavigate
+  const navigate = useNavigate();  
 
   useEffect(() => {
     const [type, typeId] = id.split("-");
@@ -43,7 +43,7 @@ const DetailsPage = () => {
 
       const response = await fetch(endpoint, {
         headers: {
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTJhY2YzYzJlMDhhNjRjNzY2OTAzOTlmODNlODdlMSIsIm5iZiI6MTczMjc4ODI0MS4zMTc0MzIyLCJzdWIiOiI2NzNjNmQ2YjNiNDgwNDgxY2RkZGNlYmEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3UCzg5mc2oauTFeiGBWUkF67wwRycQuQ9qcl_B9eU9o<YOUR_API_KEY>",
+          Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTJhY2YzYzJlMDhhNjRjNzY2OTAzOTlmODNlODdlMSIsIm5iZiI6MTczMjc4ODI0MS4zMTc0MzIyLCJzdWIiOiI2NzNjNmQ2YjNiNDgwNDgxY2RkZGNlYmEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3UCzg5mc2oauTFeiGBWUkF67wwRycQuQ9qcl_B9eU9o",
           Accept: "application/json",
         },
       });
@@ -55,7 +55,7 @@ const DetailsPage = () => {
   };
 
   const handleRelatedItemClick = (type, id) => {
-    navigate(`/details/${type}-${id}`);  // Navega a la página de detalles del ítem
+    navigate(`/details/${type}-${id}`);  
   };
 
   return (
@@ -90,7 +90,7 @@ const DetailsPage = () => {
                   <div
                     key={item.id}
                     className="related-item"
-                    onClick={() => handleRelatedItemClick(item.media_type, item.id)}  // Maneja el click
+                    onClick={() => handleRelatedItemClick(item.media_type, item.id)}  // Maneja el clic
                   >
                     <img
                       src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
