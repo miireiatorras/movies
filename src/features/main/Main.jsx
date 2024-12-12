@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import MovieCard from "../Movie-card/MovieCard";
 import "./Main.css";
 import Banner from "../banner/Banner";
 
 const Main = () => {
-  const [popularMovies, setPopularMovies] = useState([]); // Inicializa como un array vacío
-  const [popularSeries, setPopularSeries] = useState([]); // Inicializa como un array vacío
-  const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate();
+  const [popularMovies, setPopularMovies] = useState([]); 
+  const [popularSeries, setPopularSeries] = useState([]); 
 
   useEffect(() => {
     fetchMovies();
@@ -27,10 +24,10 @@ const Main = () => {
         }
       );
       const data = await response.json();
-      setPopularMovies(data.results || []); // Maneja el caso donde `results` sea undefined
+      setPopularMovies(data.results || []); 
     } catch (error) {
       console.error("Error fetching movies:", error);
-      setPopularMovies([]); // Asegúrate de mantener un array vacío si hay un error
+      setPopularMovies([]); 
     }
   };
 
@@ -46,36 +43,16 @@ const Main = () => {
         }
       );
       const data = await response.json();
-      setPopularSeries(data.results || []); // Maneja el caso donde `results` sea undefined
+      setPopularSeries(data.results || []); 
     } catch (error) {
       console.error("Error fetching series:", error);
-      setPopularSeries([]); // Asegúrate de mantener un array vacío si hay un error
-    }
-  };
-
-  const handleSearchSubmit = (event) => {
-    event.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/results?query=${searchQuery}`);
+      setPopularSeries([]);
     }
   };
 
   return (
     <div className="Main">
       <Banner />
-      <form onSubmit={handleSearchSubmit} className="search-form">
-        <input
-          type="text"
-          placeholder="Search for movies or series..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="search-input"
-        />
-        <button type="submit" className="search-button">
-          Search
-        </button>
-      </form>
-
       <h1>Popular Movies</h1>
       <div className="movie-list">
         {popularMovies.length > 0 ? (
@@ -89,7 +66,7 @@ const Main = () => {
             />
           ))
         ) : (
-          <p>No movies available</p> // Mensaje por defecto si no hay datos
+          <p>No movies available</p> 
         )}
       </div>
 
@@ -106,7 +83,7 @@ const Main = () => {
             />
           ))
         ) : (
-          <p>No TV series available</p> // Mensaje por defecto si no hay datos
+          <p>No TV series available</p> 
         )}
       </div>
     </div>
