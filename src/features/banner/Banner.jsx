@@ -6,7 +6,7 @@ function Banner() {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/emotions'); // Redirige a la ruta "/emotions"
+    navigate('/emotions'); // redirigeix a la ruta "/emotions"
   };
 
   return (

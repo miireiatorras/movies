@@ -3,19 +3,21 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./DetailsPage.css";
 
 const DetailsPage = () => {
-  const { id } = useParams();
-  const [details, setDetails] = useState(null);
-  const [relatedContent, setRelatedContent] = useState([]);
+  const { id } = useParams(); // Obtenim l'ID del paràmetre de l'URL
+  const [details, setDetails] = useState(null);  // Estat per emmagatzemar els detalls de la pel·lícula o sèrie
+  const [relatedContent, setRelatedContent] = useState([]); // Estat per emmagatzemar el contingut relacionat
   const navigate = useNavigate();  
 
   useEffect(() => {
-    const [type, typeId] = id.split("-");
-    fetchDetails(type, typeId);
-    fetchRelatedContent(type, typeId);
+    const [type, typeId] = id.split("-"); // Separar el tipus (pel·lícula/sèrie) i l'ID
+    fetchDetails(type, typeId);  // Obtenir els detalls del contingut (pel·lícula o sèrie)
+    fetchRelatedContent(type, typeId); // Obtenir el contingut relacionat
   }, [id]);
 
   const fetchDetails = async (type, typeId) => {
     try {
+            // Construcció de l'endpoint segons si és pel·lícula o sèrie
+
       const endpoint =
         type === "movie"
           ? `https://api.themoviedb.org/3/movie/${typeId}?language=en-US`
@@ -28,11 +30,13 @@ const DetailsPage = () => {
         },
       });
       const data = await response.json();
-      setDetails({ ...data, type });
+      setDetails({ ...data, type }); // Guardem els detalls i el tipus (pel·lícula o sèrie)
     } catch (error) {
       console.error("Error fetching details:", error);
     }
   };
+
+    // Funció per obtenir contingut relacionat (pel·lícules o sèries similars)
 
   const fetchRelatedContent = async (type, typeId) => {
     try {
@@ -48,19 +52,19 @@ const DetailsPage = () => {
         },
       });
       const data = await response.json();
-      setRelatedContent(data.results || []);
+      setRelatedContent(data.results || []);  // Guardem els continguts relacionats (si n'hi ha)
     } catch (error) {
       console.error("Error fetching related content:", error);
     }
   };
 
   const handleRelatedItemClick = (type, id) => {
-    navigate(`/details/${type}-${id}`);  
+    navigate(`/details/${type}-${id}`);  // Redirigeix a la pàgina de detalls del contingut clicat
   };
 
   return (
     <div className="details-container">
-      {details ? (
+      {details ? ( // Si tenim detalls, els mostrem
         <>
           <span className={`type-label ${details.type}`}>
             {details.type === "movie" ? "MOVIE" : "SERIE"}
