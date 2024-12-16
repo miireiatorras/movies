@@ -16,10 +16,9 @@ const DetailsPage = () => {
 
   const fetchDetails = async (type, typeId) => {
     try {
-            // Construcció de l'endpoint segons si és pel·lícula o sèrie
-
+// Construcció de l'endpoint segons si és pel·lícula o sèrie
       const endpoint =
-        type === "movie"
+        type === "movie"  
           ? `https://api.themoviedb.org/3/movie/${typeId}?language=en-US`
           : `https://api.themoviedb.org/3/tv/${typeId}?language=en-US`;
 
@@ -36,8 +35,7 @@ const DetailsPage = () => {
     }
   };
 
-    // Funció per obtenir contingut relacionat (pel·lícules o sèries similars)
-
+// Funció per obtenir contingut relacionat (pel·lícules o sèries similars)
   const fetchRelatedContent = async (type, typeId) => {
     try {
       const endpoint =
@@ -94,7 +92,7 @@ const DetailsPage = () => {
                   <div
                     key={item.id}
                     className="related-item"
-                    onClick={() => handleRelatedItemClick(item.media_type, item.id)}  // Maneja el clic
+                    onClick={() => handleRelatedItemClick(item.media_type, item.id)}  
                   >
                     <img
                       src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
