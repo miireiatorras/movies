@@ -98,7 +98,7 @@ const ResultsPage = () => {
             value={rating}
             onChange={(e) => setRating(e.target.value)} // Update rating state
           />
-          <span>{rating}</span>
+            <span>{rating}</span>
         </div>
 
         <div>
