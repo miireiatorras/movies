@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./EmotionsPage.css";
 
 function EmotionsPage() {
@@ -6,17 +7,19 @@ function EmotionsPage() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
+
   const emotions = [
-    { name: "HAPPINESS", image: "/alegria.png", genreId: 35 }, // Comedy
-    { name: "SADNESS", image: "/tristeza.png", genreId: 18 }, // Drama
-    { name: "HORROR", image: "/miedo.png", genreId: 27 }, // Horror
-    { name: "RELAX", image: "/relajado.jpg", genreId: 10749 }, // Romance
-    { name: "MOTIVATE", image: "/motivada.avif", genreId: 28 }, // Action
-    { name: "CURIOSITY", image: "/curiosidad.jpg", genreId: 99 }, // Documentary
-    { name: "NOSTALGIA", image: "/nostalgia.jpeg", genreId: 10751 }, // Family
-    { name: "ROMANCE", image: "/romance.jpg", genreId: 10749 }, // Romance
-    { name: "DREAMER", image: "/soñador.jpg", genreId: 14 }, // Fantasy
-    { name: "BORING", image: "/aburrido.jpg", genreId: 80 }, // Crime
+    { name: "HAPPINESS", image: "/alegria.png", genreId: 35 },
+    { name: "SADNESS", image: "/tristeza.png", genreId: 18 },
+    { name: "HORROR", image: "/miedo.png", genreId: 27 },
+    { name: "RELAX", image: "/relajado.jpg", genreId: 10749 },
+    { name: "MOTIVATE", image: "/motivada.avif", genreId: 28 },
+    { name: "CURIOSITY", image: "/curiosidad.jpg", genreId: 99 },
+    { name: "NOSTALGIA", image: "/nostalgia.jpeg", genreId: 10751 },
+    { name: "ROMANCE", image: "/romance.jpg", genreId: 10749 },
+    { name: "DREAMER", image: "/soñador.jpg", genreId: 14 },
+    { name: "BORING", image: "/aburrido.jpg", genreId: 80 },
   ];
 
   const fetchContent = async (type, genreId) => {
@@ -32,7 +35,7 @@ function EmotionsPage() {
 
       const data = await response.json();
       return data.results
-        .filter((item) => item.poster_path) // Filtrar elementos sin póster
+        .filter((item) => item.poster_path)
         .map((item) => ({
           id: item.id,
           title: item.title || item.name,
@@ -55,8 +58,12 @@ function EmotionsPage() {
     const movies = await fetchContent("movie", emotion.genreId);
     const series = await fetchContent("tv", emotion.genreId);
 
-    setResults([...movies, ...series]); // Combinar películas y series
+    setResults([...movies, ...series]);
     setLoading(false);
+  };
+
+  const handleResultClick = (type, id) => {
+    navigate(`/details/${type}-${id}`); // Redirige a la página de detalles
   };
 
   return (
@@ -85,7 +92,11 @@ function EmotionsPage() {
           <h2>Results for {selectedEmotion}</h2>
           <ul className="results-list">
             {results.map((result) => (
-              <li key={result.id} className={`result-item ${result.type}`}>
+              <li
+                key={result.id}
+                className={`result-item ${result.type}`}
+                onClick={() => handleResultClick(result.type, result.id)} // Maneja el clic
+              >
                 <img
                   className="result-poster"
                   src={result.poster}
