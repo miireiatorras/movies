@@ -3,20 +3,20 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./DetailsPage.css";
 
 const DetailsPage = () => {
-  const { id } = useParams(); // Obtenim l'ID del paràmetre de l'URL
-  const [details, setDetails] = useState(null);  // Estat per emmagatzemar els detalls de la pel·lícula o sèrie
-  const [relatedContent, setRelatedContent] = useState([]); // Estat per emmagatzemar el contingut relacionat
+  const { id } = useParams(); //obtain the id from the URL
+  const [details, setDetails] = useState(null);  //state to store the details of the content
+  const [relatedContent, setRelatedContent] = useState([]); //state to store the related content
   const navigate = useNavigate();  
 
   useEffect(() => {
-    const [type, typeId] = id.split("-"); // Separar el tipus (pel·lícula/sèrie) i l'ID
-    fetchDetails(type, typeId);  // Obtenir els detalls del contingut (pel·lícula o sèrie)
-    fetchRelatedContent(type, typeId); // Obtenir el contingut relacionat
+    const [type, typeId] = id.split("-"); //split the id and the type
+    fetchDetails(type, typeId);  // we obtain the details of the content (movie or series) 
+    fetchRelatedContent(type, typeId); //we obtain the related content
   }, [id]);
 
   const fetchDetails = async (type, typeId) => {
     try {
-// Construcció de l'endpoint segons si és pel·lícula o sèrie
+//construction of the endpoint depending on whether it is a movie or a series
       const endpoint =
         type === "movie"  
           ? `https://api.themoviedb.org/3/movie/${typeId}?language=en-US`
@@ -29,13 +29,13 @@ const DetailsPage = () => {
         },
       });
       const data = await response.json();
-      setDetails({ ...data, type }); // Guardem els detalls i el tipus (pel·lícula o sèrie)
+      setDetails({ ...data, type }); //we save the details and the type (tv serie or movie)
     } catch (error) {
       console.error("Error fetching details:", error);
     }
   };
 
-// Funció per obtenir contingut relacionat (pel·lícules o sèries similars)
+//function to fetch related content
   const fetchRelatedContent = async (type, typeId) => {
     try {
       const endpoint =
@@ -50,19 +50,19 @@ const DetailsPage = () => {
         },
       });
       const data = await response.json();
-      setRelatedContent(data.results || []);  // Guardem els continguts relacionats (si n'hi ha)
+      setRelatedContent(data.results || []);  // we save the related content (if there is any)
     } catch (error) {
       console.error("Error fetching related content:", error);
     }
   };
 
   const handleRelatedItemClick = (type, id) => {
-    navigate(`/details/${type}-${id}`);  // Redirigeix a la pàgina de detalls del contingut clicat
+    navigate(`/details/${type}-${id}`);  // Redirect to the detail page of the clicked content 
   };
 
   return (
     <div className="details-container">
-      {details ? ( // Si tenim detalls, els mostrem
+      {details ? ( // if we have details, we show them
         <>
           <span className={`type-label ${details.type}`}>
             {details.type === "movie" ? "MOVIE" : "SERIE"}

@@ -6,7 +6,7 @@ function Banner() {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/emotions'); // redirigeix a la ruta "/emotions"
+    navigate('/emotions'); //navigates to the "/emotions" route when the button is clicked
   };
 
   return (
@@ -15,7 +15,7 @@ function Banner() {
       <div className="banner-content">
         <h1>Welcome to FeelReel!</h1>
         <h3>"Discover stories, feel emotion, live magic.”</h3>
-        <button onClick={handleButtonClick}>
+        <button onClick={handleButtonClick}> {/*calls the handleButtonClick function when the button is clicked*/}
           How are you feeling today?
         </button>
       </div>

@@ -4,15 +4,15 @@ import "./Main.css";
 import Banner from "../banner/Banner";
 
 const Main = () => {
-  const [popularMovies, setPopularMovies] = useState([]); // Estat per emmagatzemar pel·lícules.
-  const [popularSeries, setPopularSeries] = useState([]); // Estat per emmagatzemar sèries.
+  const [popularMovies, setPopularMovies] = useState([]); //state to store popular movies
+  const [popularSeries, setPopularSeries] = useState([]); //state to store popular series
 
   useEffect(() => {
-    fetchMovies(); // Carrega les pel·lícules populars.
-    fetchSeries(); // Carrega les sèries populars.
+    fetchMovies(); //we call the function that fetches the popular movies
+    fetchSeries(); //we call the function that fetches the popular series
   }, []);
 
-  // Obté les pel·lícules populars de l'API
+  //obtains the popular movies from the API
   const fetchMovies = async () => {
     try {
       const response = await fetch("https://api.themoviedb.org/3/discover/movie?language=en-US&sort_by=popularity.desc", { 
@@ -22,14 +22,14 @@ const Main = () => {
         } 
       });
       const data = await response.json();
-      setPopularMovies(data.results || []); // Desa les pel·lícules a l'estat.
+      setPopularMovies(data.results || []); //stores the popular movies in the state
     } catch (error) {
       console.error("Error fetching movies:", error);
-      setPopularMovies([]); // Gestiona errors.
+      setPopularMovies([]); // manages errors
     }
   };
 
-  // Obté les sèries populars de l'API
+  //obtains the popular series from the API
   const fetchSeries = async () => {
     try {
       const response = await fetch("https://api.themoviedb.org/3/tv/popular?language=en-US", { 
@@ -39,10 +39,10 @@ const Main = () => {
         } 
       });
       const data = await response.json();
-      setPopularSeries(data.results || []); // Desa les sèries a l'estat.
+      setPopularSeries(data.results || []); // it stores the series in the state
     } catch (error) {
       console.error("Error fetching series:", error);
-      setPopularSeries([]); // Gestiona errors.
+      setPopularSeries([]); // manages errors
     }
   };
 
@@ -52,7 +52,7 @@ const Main = () => {
       <h1>Popular Movies</h1>
       <div className="movie-list">
         {popularMovies.length > 0 ? (
-          popularMovies.map((movie) => ( // Mostra les pel·lícules
+          popularMovies.map((movie) => ( // show the movies
             <MovieCard key={movie.id} title={movie.title} image={movie.poster_path} id={`movie-${movie.id}`} release_date={movie.release_date} />
           ))
         ) : (
@@ -63,7 +63,7 @@ const Main = () => {
       <h1>Popular TV Series</h1>
       <div className="movie-list">
         {popularSeries.length > 0 ? (
-          popularSeries.map((series) => ( // Mostra les sèries
+          popularSeries.map((series) => ( // show the series
             <MovieCard key={series.id} title={series.name} image={series.poster_path} id={`series-${series.id}`} release_date={series.first_air_date} />
           ))
         ) : (

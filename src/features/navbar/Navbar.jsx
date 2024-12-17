@@ -3,18 +3,18 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
-  // Estat per gestionar el text introduït a la barra de cerca
+  // State to manage the text entered in the search bar
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Hook per navegar a una altra ruta
+  // Hook to navigate to a different route
   const navigate = useNavigate();
 
-  // Funció que gestiona l'enviament del formulari de cerca
+  // Function that handles the search form submission
   const handleSearchSubmit = (event) => {
-    event.preventDefault(); // Evita que la pàgina es recarregui
+    event.preventDefault(); // Prevents the page from reloading
     if (searchQuery.trim()) { 
-      // Només navega si hi ha text (sense espais buits)
-      navigate(`/results?query=${searchQuery}`); // Navega a la ruta amb el terme de cerca
+      // Only navigates if there's text (excluding whitespace)
+      navigate(`/results?query=${searchQuery}`); // Navigates to the route with the search term
     }
   };
 
@@ -30,8 +30,8 @@ function Navbar() {
         <input
           type="text"
           placeholder="Search for movies or series..." 
-          value={searchQuery} // Vincula el valor de l'input amb l'estat
-          onChange={(e) => setSearchQuery(e.target.value)} // Actualitza l'estat quan l'usuari escriu
+          value={searchQuery} // Binds the input value to the state
+          onChange={(e) => setSearchQuery(e.target.value)} // Updates the state when the user types
           className="search-input"
         />
         <button type="submit" className="search-button"> 

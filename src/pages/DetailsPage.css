@@ -88,14 +88,14 @@
   }
   
   .related-item {
-    flex: 0 0 calc(33.333% - 20px); /* Un tercio del contenedor */
+    flex: 0 0 calc(33.333% - 20px); 
     text-align: center;
     background: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 15px;
-    will-change: transform; /* Mejora del rendimiento */
+    will-change: transform; 
   }
   
   .related-item img {
@@ -109,7 +109,6 @@
   .related-item:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
-  
   
   
   .details-release {

@@ -13,6 +13,7 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
+          {/*We use the Route component to define the routes and their corresponding components */}
           <Route path="/" element={<Main />} />
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/details/:id" element={<DetailsPage />} />
