@@ -39,10 +39,7 @@ function Navbar() {
         </button>
       </form>
 
-      <div className="navbar-content">
-        <p className="profile-link">My profile</p>
-        <img src="/avatar.png" alt="avatar" className="avatar" /> 
-      </div>
+     
     </nav>
   );
 }
