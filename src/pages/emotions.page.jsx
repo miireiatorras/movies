@@ -23,7 +23,7 @@ function EmotionsPage() {
     { name: "TERRIFIED", image: "/miedo.png", genreId: 27 },
     { name: "RELAXED", image: "/relajado.jpg", genreId: 10749 },
     { name: "MOTIVATED", image: "/motivada.avif", genreId: 28 },
-    { name: "CURIOSIOUS", image: "/curiosidad.jpg", genreId: 99 },
+    { name: "CURIOUS", image: "/curiosidad.jpg", genreId: 99 },
     { name: "NOSTALGIC", image: "/nostalgia.jpeg", genreId: 10751 },
     { name: "ROMANTIC", image: "/romance.jpg", genreId: 10749 },
     { name: "DREAMER", image: "/soñador.jpg", genreId: 14 },
