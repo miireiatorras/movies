@@ -63,8 +63,8 @@ const DetailsPage = () => {
     }
   };
 
-  const handleRelatedItemClick = (type, id) => {
-    navigate(`/details/${type}-${id}`);  // Redirect to the detail page of the clicked content 
+  const handleRelatedItemClick = (id) => {
+    navigate(`/details/${details.type}-${id}`);  // Redirect to the detail page of the clicked related content
   };
 
   return (
@@ -96,18 +96,18 @@ const DetailsPage = () => {
             {relatedContent.length > 0 ? (
               <div className="related-list">
                 {relatedContent.map((item) => (
-                  <div
-                    key={item.id}
-                    className="related-item"
-                    onClick={() => handleRelatedItemClick(item.media_type, item.id)}  
-                  >
-                    <img
-                      src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
-                      alt={item.title || item.name}
-                    />
-                    <p>{item.title || item.name}</p>
-                  </div>
-                ))}
+  <div
+    key={item.id}
+    className="related-item"
+    onClick={() => handleRelatedItemClick(item.id)}  
+  >
+    <img
+      src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
+      alt={item.title || item.name}
+    />
+    <p>{item.title || item.name}</p>
+  </div>
+))}
               </div>
             ) : (
               <p>Related content not available</p>
