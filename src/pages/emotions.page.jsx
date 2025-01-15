@@ -15,6 +15,8 @@ function EmotionsPage() {
 
   const navigate = useNavigate();
 
+    // Predefined list of emotions and their associated genres
+
   const emotions = [
     { name: "HAPPINESS", image: "/alegria.png", genreId: 35 },
     { name: "SADNESS", image: "/tristeza.png", genreId: 18 },
@@ -28,6 +30,7 @@ function EmotionsPage() {
     { name: "BORING", image: "/aburrido.jpg", genreId: 80 },
   ];
 
+  //Fetches content (movies/series) based on emotion genre.
   const fetchContent = async (type, genreId) => {
     try {
       const endpoint = `https://api.themoviedb.org/3/discover/${type}?language=en-US&with_genres=${genreId}&sort_by=popularity.desc`;
@@ -54,6 +57,7 @@ function EmotionsPage() {
     }
   };
 
+  // Handles when a user selects an emotion.
   const handleEmotionClick = async (emotionName) => {
     const emotion = emotions.find((e) => e.name === emotionName);
     if (!emotion) return;
@@ -69,7 +73,7 @@ function EmotionsPage() {
   };
 
   const handleResultClick = (type, id) => {
-    navigate(`/details/${type}-${id}`); // Redirige a la página de detalles
+    navigate(`/details/${type}-${id}`); // redirect to the details.page
   };
 
   return (
@@ -78,6 +82,8 @@ function EmotionsPage() {
       <p className="explanatory-text">
         Select how you feel today, and we will show you movies and series that match your mood!
       </p>
+            {/* Buttons to select an emotion */}
+
       <div className="button-container">
         {emotions.map((emotion) => (
           <button
@@ -92,6 +98,8 @@ function EmotionsPage() {
           </button>
         ))}
       </div>
+            {/* Loading and results display */}
+
       {loading && <p>Loading content...</p>}
       {selectedEmotion && !loading && (
         <div className="results-container">
