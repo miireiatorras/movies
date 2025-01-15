@@ -18,16 +18,16 @@ function EmotionsPage() {
     // Predefined list of emotions and their associated genres
 
   const emotions = [
-    { name: "HAPPINESS", image: "/alegria.png", genreId: 35 },
-    { name: "SADNESS", image: "/tristeza.png", genreId: 18 },
-    { name: "HORROR", image: "/miedo.png", genreId: 27 },
-    { name: "RELAX", image: "/relajado.jpg", genreId: 10749 },
-    { name: "MOTIVATE", image: "/motivada.avif", genreId: 28 },
-    { name: "CURIOSITY", image: "/curiosidad.jpg", genreId: 99 },
-    { name: "NOSTALGIA", image: "/nostalgia.jpeg", genreId: 10751 },
-    { name: "ROMANCE", image: "/romance.jpg", genreId: 10749 },
+    { name: "HAPPY", image: "/alegria.png", genreId: 35 },
+    { name: "SAD", image: "/tristeza.png", genreId: 18 },
+    { name: "TERRIFIED", image: "/miedo.png", genreId: 27 },
+    { name: "RELAXED", image: "/relajado.jpg", genreId: 10749 },
+    { name: "MOTIVATED", image: "/motivada.avif", genreId: 28 },
+    { name: "CURIOSIOUS", image: "/curiosidad.jpg", genreId: 99 },
+    { name: "NOSTALGIC", image: "/nostalgia.jpeg", genreId: 10751 },
+    { name: "ROMANTIC", image: "/romance.jpg", genreId: 10749 },
     { name: "DREAMER", image: "/soñador.jpg", genreId: 14 },
-    { name: "BORING", image: "/aburrido.jpg", genreId: 80 },
+    { name: "BORED", image: "/aburrido.jpg", genreId: 80 },
   ];
 
   //Fetches content (movies/series) based on emotion genre.
