@@ -1,3 +1,9 @@
+/**
+ * Main Goal:
+ * The EmotionsPage component enables users to discover content (movies/series)
+ * based on their mood by selecting from predefined emotions.
+ */
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./EmotionsPage.css";

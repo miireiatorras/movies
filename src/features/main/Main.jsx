@@ -1,7 +1,15 @@
+/**
+ * Main Goal:
+ * The Main component displays the homepage content.
+ * - Fetches and shows popular movies and TV series using APIs.
+ * - Divides the content into two main sections: Movies and TV Series.
+ */
+
 import React, { useState, useEffect } from "react"; 
 import MovieCard from "../Movie-card/MovieCard"; 
 import "./Main.css"; 
 import Banner from "../banner/Banner";
+
 
 const Main = () => {
   const [popularMovies, setPopularMovies] = useState([]); //state to store popular movies

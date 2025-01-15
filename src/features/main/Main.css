@@ -63,7 +63,7 @@
 }
 
 .search-input:focus {
-  border-color: #ff7f50; /* Azul claro para indicar el enfoque */
+  border-color: #ff7f50;
   box-shadow: 0 0 6px rgba(255, 111, 0, 0.5);
 }
 
@@ -80,6 +80,6 @@
 }
 
 .search-button:hover {
-  background-color: #ff7f50; /* Azul más oscuro al pasar el cursor */
+  background-color: #ff7f50; 
   transform: scale(1.05);
 }

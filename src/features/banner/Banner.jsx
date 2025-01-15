@@ -1,3 +1,11 @@
+/**
+ * Main Goal:
+ * The Banner component displays a full-width banner with a button.
+ * - It includes an inspiring message and a button for navigation.
+ * - Enhances the visual appeal of the homepage.
+ */
+
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Banner.css';

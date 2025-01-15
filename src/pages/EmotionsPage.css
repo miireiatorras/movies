@@ -1,4 +1,3 @@
-/* General body styling */
 body {
   background: linear-gradient(135deg, #ffffff, #d8d8d8);
   font-family: 'Roboto', sans-serif;
@@ -7,7 +6,6 @@ body {
   color: #333;
 }
 
-/* Emotions page container */
 .emotions-page {
   max-width: 1200px;
   margin: 0 auto;
@@ -40,7 +38,6 @@ h2 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Button container */
 .button-container {
   display: flex;
   flex-wrap: wrap;
@@ -71,7 +68,6 @@ h2 {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Results container */
 .results-container {
   margin-top: 50px;
   text-align: center;
@@ -83,7 +79,6 @@ h2 {
   color: #444;
 }
 
-/* Grid styling for results */
 .results-list {
   list-style: none;
   padding: 0;
@@ -108,7 +103,6 @@ h2 {
   cursor: pointer;
 }
 
-/* Movie and series distinction */
 .result-item.movie {
   border-left: 5px solid #f44336;
 }
@@ -117,7 +111,6 @@ h2 {
   border-left: 5px solid #2196f3;
 }
 
-/* Title and type styling */
 .result-type {
   font-weight: bold;
   font-size: 0.9rem;

@@ -1,6 +1,14 @@
+/**
+ * Main Goal:
+ * The Navbar component provides navigation links and a search bar.
+ * - It enables users to navigate between pages.
+ * - Allows users to search for movies or series, redirecting to a results page.
+ */
+
 import React, { useState } from "react"; 
 import { Link, useNavigate } from "react-router-dom"; 
 import "./Navbar.css";
+
 
 function Navbar() {
   // State to manage the text entered in the search bar
@@ -25,7 +33,14 @@ function Navbar() {
           <img src="/logo_app.png" alt="logo" className="logo" /> 
         </Link>
       </div>
+
+      {/* Navigation Msenu */}
+      <ul className="navbar-menu">
+        <li><Link to="/">Popular Movies and TV Series</Link></li>
+        <li><Link to="/emotions">Emotions</Link></li>
+      </ul>
       
+      {/* Search Form */}
       <form onSubmit={handleSearchSubmit} className="search-form">
         <input
           type="text"
@@ -38,8 +53,6 @@ function Navbar() {
           Search
         </button>
       </form>
-
-     
     </nav>
   );
 }

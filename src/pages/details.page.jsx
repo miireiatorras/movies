@@ -1,3 +1,10 @@
+/**
+ * Main Goal:
+ * The DetailsPage component displays detailed information about a specific movie or series.
+ * - Fetches and shows details of the selected content based on the URL ID.
+ * - Fetches and displays related content to enhance user experience.
+ */
+
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";  
 import "./DetailsPage.css";

@@ -1,3 +1,10 @@
+/**
+ * Main Goal:
+ * The App component serves as the main container for the application.
+ * - It uses React Router to manage navigation between pages.
+ * - Includes global components like Navbar and Footer for consistent layout.
+ */
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Footer from './features/footer/Footer.jsx';

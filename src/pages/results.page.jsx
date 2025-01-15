@@ -1,3 +1,11 @@
+/**
+ * Main Goal:
+ * The ResultsPage component displays search results based on user queries.
+ * - Fetches search results from an external API.
+ * - Allows users to filter results by rating and genre.
+ */
+
+
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import MovieCard from "../features/Movie-card/MovieCard";
